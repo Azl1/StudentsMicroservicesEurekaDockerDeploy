@@ -13,5 +13,6 @@ public class StudentsService {
     public static void main(String[] args) {
         SpringApplication.run(StudentsService.class, args);
 
+        System.out.println("ОК");
     }
 }
