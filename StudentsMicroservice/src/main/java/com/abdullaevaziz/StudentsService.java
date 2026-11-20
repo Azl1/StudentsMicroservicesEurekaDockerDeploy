@@ -12,7 +12,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class StudentsService {
     public static void main(String[] args) {
         SpringApplication.run(StudentsService.class, args);
-
+        System.out.println("ОК");
+        System.out.println("ОК");
         System.out.println("ОК");
     }
 }
