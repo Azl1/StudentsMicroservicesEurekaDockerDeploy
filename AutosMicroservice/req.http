@@ -1,0 +1,105 @@
+### add Auto
+POST http://194.113.34.190:8082/autos/1
+content-type:application/json
+
+{
+  "brand" : "Мерс",
+  "power" : 2000,
+  "year" : 2022
+}
+
+### add Auto
+POST http://194.113.34.190:8082/autos/1
+content-type:application/json
+
+{
+  "brand" : "БМВ",
+  "power" : 2000,
+  "year" : 2023
+}
+
+### add Auto
+POST http://194.113.34.190:8082/autos/3
+content-type:application/json
+
+{
+  "brand" : "Лексус",
+  "power" : 3000,
+  "year" : 2025
+}
+
+### add Auto
+POST http://194.113.34.190:8082/autos/300
+content-type:application/json
+
+{
+  "brand" : "KIA",
+  "power" : 2002,
+  "year" : 2024
+}
+
+
+### get all Auto
+GET http://194.113.34.190:8082/autos
+
+### get Auto by id
+GET http://194.113.34.190:8082/autos/3
+
+### get Auto by incorrect id
+GET http://194.113.34.190:8082/autos/100
+
+
+### remove Auto by id
+DELETE http://194.113.34.190:8082/autos/1
+
+### update Auto
+PUT http://194.113.34.190:8082/autos
+content-type:application/json
+
+{
+  "id": 2,
+  "brand": "Лада",
+  "power": 1000,
+  "year": 2024
+}
+
+### update Auto
+PUT http://194.113.34.190:8082/autos
+content-type:application/json
+
+{
+  "id": 2,
+  "brand": "Рено",
+  "power": 15000,
+  "year": 2013
+}
+
+### update Auto
+PUT http://194.113.34.190:8082/autos
+content-type:application/json
+
+{
+  "id": 1,
+  "brand": "Мустанг",
+  "power": 5000,
+  "year": 2025
+}
+
+### update Auto erorr
+PUT http://194.113.34.190:8082/autos
+content-type:application/json
+
+{
+  "id": 2,
+  "brand" : "KIA",
+  "power" : 2002,
+  "year" : 2024
+}
+
+
+
+### delete Auto by id
+DELETE http://194.113.34.190:8082/autos/3
+
+### Get list auto by student id
+GET http://194.113.34.190:8082/autos/listAutoByStudentId/2

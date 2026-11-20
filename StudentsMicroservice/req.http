@@ -1,0 +1,97 @@
+### add Student
+POST http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "fio" : "Иванов",
+  "age" : 28,
+  "num" : 10,
+  "salary" : 2000
+}
+
+### add Student
+POST http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "fio" : "Петров",
+  "age" : 30,
+  "num" : 11,
+  "salary" : 3000
+}
+
+### add Student
+POST http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "fio" : "Сидоров",
+  "age" : 31,
+  "num" : 12,
+  "salary" : 4000
+}
+
+### get all Student
+GET http://194.113.34.190:8081/students
+
+### get Student by id
+GET http://194.113.34.190:8081/students/2
+
+### get Student by incorrect id
+GET http://194.113.34.190:8081/students/100
+
+
+### remove Student by id
+DELETE http://194.113.34.190:8081/students/3
+
+### update Student
+PUT http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "id" : 2,
+  "fio" : "Березин",
+  "age" : 35,
+  "num" : 12,
+  "salary" : 7000
+}
+
+### update Student
+PUT http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "id" : 1,
+  "fio" : "Иванов",
+  "age" : 28,
+  "num" : 10,
+  "salary" : 2000
+
+}
+
+### update Student
+PUT http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "id" : 1,
+  "fio" : "Козлов",
+  "age" : 21,
+  "num" : 11,
+  "salary" : 2025
+}
+
+### update Student erorr
+PUT http://194.113.34.190:8081/students
+content-type:application/json
+
+{
+  "id" : 2,
+  "fio" : "Иванов",
+  "age" : 28,
+  "num" : 10,
+  "salary" : 2000
+}
+
+### Get list auto by student id
+GET http://194.113.34.190:8082/auto/listAutoByStudentId/200

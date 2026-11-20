@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Main-Class: com.abdullaevaziz.AutoService
+Class-Path: commons-fileupload-1.5.jar joda-time-2.3.jar logback-core-1.
+ 4.14.jar netflix-infix-0.3.0.jar antlr4-runtime-4.13.0.jar spring-data-
+ jpa-3.2.2.jar jakarta.annotation-api-2.1.1.jar spring-cloud-starter-loa
+ dbalancer-4.1.0.jar reactor-core-3.6.2.jar xstream-1.4.19.jar commons-c
+ odec-1.16.0.jar spring-boot-starter-logging-3.2.2.jar spring-boot-start
+ er-json-3.2.2.jar spring-boot-starter-tomcat-3.2.2.jar HikariCP-5.0.1.j
+ ar spring-jdbc-6.1.3.jar slf4j-api-2.0.11.jar spring-boot-starter-web-3
+ .2.2.jar bcprov-jdk18on-1.74.jar antlr-2.7.7.jar woodstox-core-6.2.1.ja
+ r spring-cloud-starter-4.1.0.jar spring-cloud-commons-4.1.0.jar httpcli
+ ent-4.5.3.jar evictor-1.0.0.jar spring-cloud-context-4.1.0.jar spring-a
+ op-6.1.3.jar httpcore5-5.2.4.jar httpcore-4.4.16.jar gson-2.10.1.jar to
+ mcat-embed-websocket-10.1.18.jar spring-boot-starter-jdbc-3.2.2.jar jak
+ arta.inject-api-2.0.1.jar jackson-datatype-jsr310-2.15.3.jar spring-cor
+ e-6.1.3.jar micrometer-commons-1.12.2.jar jaxb-core-4.0.4.jar feign-for
+ m-spring-3.8.0.jar classmate-1.6.0.jar jboss-logging-3.5.3.Final.jar my
+ sql-connector-j-9.1.0.jar spring-expression-6.1.3.jar spring-cloud-star
+ ter-netflix-eureka-client-4.1.0.jar spring-cloud-loadbalancer-4.1.0.jar
+  hibernate-core-6.4.1.Final.jar httpcore5-h2-5.2.4.jar guava-19.0.jar j
+ ackson-module-parameter-names-2.15.3.jar spring-aspects-6.1.3.jar jacks
+ on-core-2.15.3.jar spring-boot-starter-data-jpa-3.2.2.jar mxparser-1.2.
+ 2.jar commons-configuration-1.10.jar xmlpull-1.1.3.1.jar aspectjweaver-
+ 1.9.21.jar angus-activation-2.0.1.jar spring-boot-starter-cache-3.2.2.j
+ ar stax2-api-4.2.1.jar feign-slf4j-13.1.jar byte-buddy-1.14.11.jar spri
+ ng-cloud-starter-openfeign-4.1.0.jar log4j-api-2.21.1.jar spring-orm-6.
+ 1.3.jar jakarta.activation-api-2.1.2.jar jakarta.ws.rs-api-3.1.0.jar ja
+ ndex-3.1.2.jar spring-tx-6.1.3.jar logback-classic-1.4.14.jar httpclien
+ t5-5.2.3.jar antlr-runtime-3.4.jar feign-form-3.8.0.jar commons-math-2.
+ 2.jar servo-core-0.12.21.jar spring-security-rsa-1.1.1.jar jettison-1.4
+ .0.jar spring-beans-6.1.3.jar stringtemplate-3.2.1.jar reactive-streams
+ -1.0.4.jar commons-lang-2.6.jar spring-webmvc-6.1.3.jar eureka-core-2.0
+ .1.jar txw2-4.0.4.jar spring-boot-starter-aop-3.2.2.jar jakarta.xml.bin
+ d-api-4.0.1.jar tomcat-embed-core-10.1.18.jar tomcat-embed-el-10.1.18.j
+ ar feign-core-13.1.jar jul-to-slf4j-2.0.11.jar snakeyaml-2.2.jar spring
+ -cloud-netflix-eureka-client-4.1.0.jar commons-jxpath-1.3.jar spring-jc
+ l-6.1.3.jar reactor-extra-3.5.1.jar log4j-to-slf4j-2.21.1.jar spring-cl
+ oud-openfeign-core-4.1.0.jar netflix-eventbus-0.3.0.jar eureka-client-2
+ .0.1.jar spring-boot-starter-3.2.2.jar hibernate-commons-annotations-6.
+ 0.6.Final.jar jaxb-runtime-4.0.4.jar spring-boot-autoconfigure-3.2.2.ja
+ r jackson-datatype-jdk8-2.15.3.jar spring-web-6.1.3.jar spring-context-
+ support-6.1.3.jar jakarta.transaction-api-2.0.1.jar jackson-annotations
+ -2.15.3.jar jackson-databind-2.15.3.jar spring-context-6.1.3.jar common
+ s-io-2.11.0.jar spring-data-commons-3.2.2.jar jakarta.persistence-api-3
+ .1.0.jar micrometer-observation-1.12.2.jar istack-commons-runtime-4.1.2
+ .jar spring-security-crypto-6.2.1.jar spring-boot-3.2.2.jar
+

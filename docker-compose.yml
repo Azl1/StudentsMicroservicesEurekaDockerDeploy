@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql_database
+    ports:
+      - "3306:3306"
+
+    # Подключает env-файл с переменными окружения (например, MYSQL_ROOT_PASSWORD).
+    env_file:
+      - ./config/application-secrets.properties
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Монтирует локальную папку ./init в каталог инициализации официального образа MySQL.
+      # Все .sql скрипты оттуда выполнятся ОДИН РАЗ при самом первом запуске базы (если volume mysql_data еще пустой)
+      - ./init:/docker-entrypoint-initdb.d
+
+    # Проверяет, что MySQL-сервер отвечает на запросы.
+    # Важно: это не гарантирует, что init-скрипты уже завершились
+    # и что нужные базы/таблицы созданы. Во время первой инициализации
+    # MySQL может временно отвечать на ping до окончания init-скриптов.
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+      # Подключает контейнер к пользовательской bridge-сети проекта.
+      # В такой сети контейнеры могут обращаться друг к другу по именам сервисов.
+    networks:
+      - app-network
+
+  eureka-server:
+    build: ./EurekaServer
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+
+    # Проверка здоровья для Eureka
+    healthcheck:
+      # Проверяет доступность Spring Boot Actuator health-эндпоинта с помощью curl
+      test: ["CMD-SHELL", "curl -f http://localhost:8761/actuator/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s # Дает сервису 30 секунд на запуск, прежде чем начнутся строгие проверки здоровья
+    networks:
+      - app-network
+
+  student-service:
+    build: ./StudentsMicroservice
+    container_name: students-service
+    ports:
+      - "8081:8081"
+    env_file:
+      - ./config/application-secrets.properties
+    environment:
+      MYSQL_DATABASE: students_db
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/students_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://eureka-server:8761/eureka/"}}}}'
+      EUREKA_INSTANCE_HOSTNAME: student-service
+    depends_on:
+      mysql-db:
+        condition: service_healthy # Запускать этот сервис ТОЛЬКО после того, как БД успешно пройдет healthcheck
+      eureka-server:
+        condition: service_healthy # И только после того, как Eureka Server полностью поднимется
+    networks:
+      - app-network
+
+  autos-service:
+    build: ./AutosMicroservice
+    container_name: autos-service
+    ports:
+      - "8082:8082"
+    env_file:
+      - ./config/application-secrets.properties
+    environment:
+      MYSQL_DATABASE: autos
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/autos_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://eureka-server:8761/eureka/"}}}}'
+      EUREKA_INSTANCE_HOSTNAME: autos-service
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - app-network
+
+# Описание общих ресурсов, используемых сервисами выше
+networks:
+  # Создает общую виртуальную сеть типа "bridge" (мост), чтобы контейнеры могли общаться друг со другом по именам сервисов
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
